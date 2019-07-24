@@ -1,4 +1,6 @@
 const bookShelf = document.querySelector('main');
+const btnNewBook = document.querySelector('#btn-new');
+const newBookForm = document.querySelector('form');
 var myLibrary = ['Book 1', 'Book 2', 'Book 3'];
 
 function Book() {
@@ -20,5 +22,9 @@ function render() {
     bookCard.appendChild(book);
   }
 }
+
+btnNewBook.addEventListener('click', function(e) {
+  newBookForm.style.display = "flex";
+});
 
 render();
