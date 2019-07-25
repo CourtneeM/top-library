@@ -8,19 +8,19 @@
   <title>Library</title>
 </head>
 <body>
-  <button id="btn-new" class="btn">New Book</button>
+  <button id="btn-new">New Book</button>
   <main>
     <form>
-      <label for="">Title: </label>
-      <input type="text">
-      <label for="">Author: </label>
-      <input type="text"> <br>
-      <label for="">Pages: </label>
-      <input type="text">
-      <label for="">Read: </label>
-      <input type="checkbox">Yes
-      <input type="checkbox">No
+      <label for="title">Title: </label>
+      <input type="text" id="title">
+      <label for="author">Author: </label>
+      <input type="text" id="author"> <br>
+      <label for="pages">Pages: </label>
+      <input type="text" id="pages">
+      <label for="read">Read? </label>
+      <input type="checkbox" name="read" value="yes">Yes
     </form>
+    <button id="add-book">Add</button>
   </main>
 
   <script src="script.js"></script>

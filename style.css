@@ -18,7 +18,7 @@ p {
 
 form {
   position: absolute;
-  top: -60px;
+  top: -90px;
   display: none;
   justify-content: center;
   width: 70%;
@@ -34,17 +34,26 @@ form input[type="text"] {
   margin-right: 10px;
   padding: 3px 0;
 }
-.btn {
-  padding: 20px 35px;
-  font-size: 1.2rem;
-  border-radius: 10px;
+#add-book {
+  position: absolute;
+  top: -55px;
+  display: none;
+  margin-left: 15px;
+  padding: 10px 40px;
+  background-color: rgb(67, 209, 12);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #fff;
 }
 
 #btn-new {
   position: absolute;
   top: 40px;
   left: 60px;
+  padding: 20px 35px;
   background-color: rgb(67, 209, 12);
   border: none;
-  color: #eee;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1.2rem;
 }
