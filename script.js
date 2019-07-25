@@ -24,10 +24,15 @@ function render() {
   removeBook.textContent = "Delete";
   removeBook.classList.add('btnRemove');
   bookShelf.appendChild(bookCard);
+
   for(let key in myLibrary[numBooks - 1]) {
     let p = document.createElement('p');
-    p.textContent = myLibrary[numBooks - 1][key];
-    bookCard.appendChild(p);  
+    if(key === "pages") {
+      p.textContent = `${myLibrary[numBooks - 1][key]} pages`;
+    } else {
+      p.textContent = myLibrary[numBooks - 1][key];
+    }
+    bookCard.appendChild(p);
     bookCard.appendChild(removeBook);
   }
 }
@@ -48,7 +53,7 @@ function eventHandler() {
       if(hasReadBox.checked) {
         hasRead = "Read";
       } else {
-        hasRead = "Not yet read";
+        hasRead = "Not Read";
       }
 
       let newBook = new Book(bookTitle.value, bookAuthor.value, numPages.value, hasRead);
@@ -70,6 +75,12 @@ function eventHandler() {
       }
       console.log(myLibrary);
       e.target.parentNode.parentNode.removeChild(e.target.parentNode);
+    }
+
+    if(e.target.textContent === "Read") {
+      e.target.textContent = "Not Read";
+    } else if(e.target.textContent === "Not Read") {
+      e.target.textContent = "Read";
     }
   })
 }

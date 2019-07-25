@@ -6,10 +6,19 @@ main {
 }
 
 div {
+  width: 200px;
   margin: 0 40px;
-  padding: 100px;
+  padding: 20px 50px;
   border: 1px solid #333;
   border-radius: 15px;
+}
+
+p:nth-child(1) {
+  font-weight: bold;
+}
+ 
+p:nth-child(2) {
+  font-style: italic;
 }
 
 p {
