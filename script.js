@@ -5,29 +5,31 @@ const btnAddBook = document.querySelector('#add-book');
 const btnRemoveBook = document.querySelector('.btnRemove');
 var myLibrary = [];
 
-function Book() {
-
+function Book(title, author, pages, read) {
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.read = read;
 }
 
-function addBookToLibrary(title) {
-  myLibrary.push(title);
+function addBookToLibrary(book) {
+  myLibrary.push(book);
   render();
 }
 
 function render() {
   let numBooks = myLibrary.length
   let bookCard = document.createElement('div');
-  let book = document.createElement('p');
   let removeBook = document.createElement('button');
   removeBook.textContent = "Delete";
   removeBook.classList.add('btnRemove');
-  for(let i = 0; i < numBooks; i++) {
-    bookShelf.appendChild(bookCard);
-    book.textContent = myLibrary[i];
-    bookCard.appendChild(book);
+  bookShelf.appendChild(bookCard);
+  for(let key in myLibrary[numBooks - 1]) {
+    let p = document.createElement('p');
+    p.textContent = myLibrary[numBooks - 1][key];
+    bookCard.appendChild(p);  
     bookCard.appendChild(removeBook);
   }
-  console.log(myLibrary);
 }
 
 function eventHandler() {
@@ -44,12 +46,17 @@ function eventHandler() {
       const hasReadBox = document.querySelector('input[type="checkbox"]');
       let hasRead;
       if(hasReadBox.checked) {
-        hasRead = "yes";
+        hasRead = "Read";
       } else {
-        hasRead = "no";
+        hasRead = "Not yet read";
       }
-      addBookToLibrary(bookTitle.value);
+
+      let newBook = new Book(bookTitle.value, bookAuthor.value, numPages.value, hasRead);
+      addBookToLibrary(newBook);
       bookTitle.value = "";
+      bookAuthor.value = "";
+      numPages.value = "";
+      hasReadBox.checked = false;
       newBookForm.style.display = "none";
       btnAddBook.style.display = "none";
     }
@@ -57,10 +64,11 @@ function eventHandler() {
     if(e.target.textContent === "Delete") {
       let bookToDelete = e.target.parentNode.children[0].textContent;
       for(let i = 0; i < myLibrary.length; i++) {
-        if(bookToDelete === myLibrary[i]) {
+        if(bookToDelete === myLibrary[i].title) {
           myLibrary.splice(i, 1);
         }
       }
+      console.log(myLibrary);
       e.target.parentNode.parentNode.removeChild(e.target.parentNode);
     }
   })
