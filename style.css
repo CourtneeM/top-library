@@ -1,13 +1,22 @@
+header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 130px;
+  
+}
+
 main {
   position: relative;
   display: flex;
   justify-content: center;
-  margin-top: 200px;
+  flex-wrap: wrap;
+  margin-top: 150px;
 }
 
 div {
   width: 200px;
-  margin: 0 40px;
+  margin: 20px;
   padding: 20px 50px;
   border: 1px solid #333;
   border-radius: 15px;
@@ -21,13 +30,21 @@ p:nth-child(2) {
   font-style: italic;
 }
 
+p:nth-child(4) {
+  width: 100px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  background-color: #555;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+}
+
 p {
   font-size: 1.5rem;
 }
 
 form {
-  position: absolute;
-  top: -90px;
   display: none;
   justify-content: center;
   width: 70%;
@@ -45,7 +62,7 @@ form input[type="text"] {
 }
 #add-book {
   position: absolute;
-  top: -55px;
+  top: 40px;
   display: none;
   margin-left: 15px;
   padding: 10px 40px;
@@ -53,16 +70,27 @@ form input[type="text"] {
   border: 1px solid #ccc;
   border-radius: 5px;
   color: #fff;
+  cursor: pointer;
 }
 
 #btn-new {
   position: absolute;
-  top: 40px;
-  left: 60px;
+  top: 5%;
+  left: 10%;
   padding: 20px 35px;
   background-color: rgb(67, 209, 12);
   border: none;
   border-radius: 10px;
   color: #fff;
   font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.btnRemove {
+  padding: 5px 10px;
+  background-color: rgb(194, 3, 3);
+  border: 1px solid #000;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
 }

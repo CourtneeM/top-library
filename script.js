@@ -39,6 +39,7 @@ function render() {
 
 function eventHandler() {
   document.addEventListener('click', function(e) {
+    console.log(e);
     if(e.target.textContent === "New Book") {
       newBookForm.style.display = "flex";
       btnAddBook.style.display = "block";
