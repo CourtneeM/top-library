@@ -31,6 +31,10 @@ const createBook = () => {
     hasRead = "Not Read";
   }
 
+  if(bookTitle.value === "" || bookAuthor.value === "" || numPages.value === "") {
+    return;
+  }
+
   let newBook = new Book(bookTitle.value, bookAuthor.value, numPages.value, hasRead);
   addBookToLibrary(newBook);
   bookTitle.value = "";
