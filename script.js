@@ -55,6 +55,20 @@ const deleteBook = (removeBook, deleteBookCard) => {
   deleteBookCard;
 }
 
+const toggleRead = (eTarget) => {
+  let numBooks = myLibrary.length;
+  let title = eTarget.parentNode.children[0].textContent;
+  for(let i = 0; i < numBooks; i++) {
+    if(myLibrary[i].title === title && myLibrary[i].read === "Read") {
+      myLibrary[i].read = "Not Read";
+      eTarget.textContent = "Not Read";
+    } else if(myLibrary[i].title === title && myLibrary[i].read === "Not Read") {
+      myLibrary[i].read = "Read";
+      eTarget.textContent = "Read";
+    }
+  }
+}
+
 const render = () => {
   let numBooks = myLibrary.length
   let bookCard = document.createElement('div');
@@ -77,7 +91,6 @@ const render = () => {
 
 const eventHandler = (() => {
   document.addEventListener('click', function(e) {
-    console.log(e);
     if(e.target.textContent === "New Book") {
       newBookForm.style.display = "flex";
       btnAddBook.style.display = "block";
@@ -93,10 +106,9 @@ const eventHandler = (() => {
       deleteBook(removeBook, deleteBookCard);
     }
 
-    if(e.target.textContent === "Read") {
-      e.target.textContent = "Not Read";
-    } else if(e.target.textContent === "Not Read") {
-      e.target.textContent = "Read";
+    if(e.target.textContent === "Read" || e.target.textContent === "Not Read") {
+      let eTarget = e.target;
+      toggleRead(eTarget);
     }
   })
 })();
